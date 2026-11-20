@@ -1,0 +1,19 @@
+[project]
+name = "stock-news-summary"
+version = "0.1.0"
+description = "An AI briefing on recent company news"
+requires-python = ">=3.10"
+dependencies = [
+    "defusedxml>=0.7.1,<1",
+    "fastapi>=0.124,<1",
+    "httpx>=0.28,<1",
+    "openai>=2.38,<3",
+    "uvicorn[standard]>=0.38,<1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A source-linked briefing on recent company news.">
+    <title>Stock News Briefing</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-content">
+        <a class="brand" href="/">Market Briefing</a>
+        <a class="docs" href="/docs">API docs</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="search-panel" aria-labelledby="page-title">
+        <h1 id="page-title">Stock news briefing</h1>
+        <p>Material developments from the past seven days, with links to the coverage.</p>
+
+        <form id="stock-form">
+          <div class="field">
+            <label for="stock">Stock ticker</label>
+            <select id="stock" name="ticker" required disabled>
+              <option value="">Loading tickers…</option>
+            </select>
+          </div>
+          <button id="submit" type="submit" disabled>Get briefing</button>
+        </form>
+        <p class="note">AI-generated from public news headlines.</p>
+      </section>
+
+      <p id="status" role="status"></p>
+
+      <section id="briefing" class="briefing" aria-labelledby="company" hidden>
+        <header class="briefing-header">
+          <div class="company-heading">
+            <h2 id="company"></h2>
+            <span id="ticker" class="ticker"></span>
+          </div>
+          <dl class="timestamps">
+            <div>
+              <dt>News checked</dt>
+              <dd><time id="checked-at"></time></dd>
+            </div>
+            <div id="generated" hidden>
+              <dt>Briefing generated</dt>
+              <dd><time id="generated-at"></time></dd>
+            </div>
+          </dl>
+        </header>
+        <p id="cached" class="cached" hidden>
+          Showing a cached briefing. Search again shortly to check for an update.
+        </p>
+        <p id="empty" class="empty" hidden>No material company news found in the past seven days.</p>
+        <ul id="developments" class="developments"></ul>
+      </section>
+
+      <section id="price-card" class="price-card" aria-labelledby="chart-heading" hidden>
+        <header class="price-header">
+          <div>
+            <div class="price-heading">
+              <h2 id="chart-heading">Price chart</h2>
+              <span id="chart-mode"></span>
+            </div>
+            <p id="chart-market" class="chart-market"></p>
+          </div>
+          <div id="chart-exchange-field" class="field" hidden>
+            <label for="chart-exchange">Exchange</label>
+            <select id="chart-exchange"></select>
+          </div>
+        </header>
+        <p id="chart-quote" class="chart-quote" hidden>
+          <strong id="chart-price"></strong>
+          <time id="chart-time"></time>
+        </p>
+        <p id="chart-status" role="status">Loading prices…</p>
+        <div id="chart-plot" class="chart-plot" hidden>
+          <canvas id="chart-canvas" role="img"></canvas>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

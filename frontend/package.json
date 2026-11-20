@@ -1,0 +1,15 @@
+{
+  "name": "stock-news-briefing-ui",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && vite build"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "chart.js": "^4.6.1"
+  }
+}
